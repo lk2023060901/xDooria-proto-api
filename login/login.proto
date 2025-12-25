@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package login;
+
+import "auth.proto";
+
+option go_package = "github.com/lk2023060901/xdooria-proto-api/login;login";
+
+message LoginRequest {
+    common.LoginType login_type = 1;
+    bytes credentials = 2; // 序列化后的平台凭证
+}
+
+message LoginResponse {
+    string token = 1;
+    uint64 uid = 2;
+    string nickname = 3;
+}
+
+// Local 登录凭证 (对应 LOGIN_TYPE_LOCAL)
+message LocalCredentials {
+    string username = 1;
+    string password = 2;
+}
