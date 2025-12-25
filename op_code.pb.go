@@ -85,7 +85,7 @@ const file_op_code_proto_rawDesc = "" +
 	"\aOP_NONE\x10\x00\x12\x14\n" +
 	"\x10OP_SYS_HEARTBEAT\x10\x01\x12\x11\n" +
 	"\fOP_LOGIN_REQ\x10\xe8\a\x12\x11\n" +
-	"\fOP_LOGIN_RES\x10\xe9\aB3Z1github.com/lk2023060901/xdooria-proto-api/api;apib\x06proto3"
+	"\fOP_LOGIN_RES\x10\xe9\aB/Z-github.com/lk2023060901/xdooria-proto-api;apib\x06proto3"
 
 var (
 	file_op_code_proto_rawDescOnce sync.Once

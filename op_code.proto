@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package api;
 
-option go_package = "github.com/lk2023060901/xdooria-proto-api/api;api";
+option go_package = "github.com/lk2023060901/xdooria-proto-api;api";
 
 // OpCode 全局协议号定义
 enum OpCode {
