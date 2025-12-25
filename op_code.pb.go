@@ -22,29 +22,15 @@ const (
 )
 
 // OpCode 全局协议号定义
-// 规则：每个模块预留 1000 个号段
 type OpCode int32
 
 const (
 	OpCode_OP_NONE OpCode = 0
-	// ==========================================
-	// 1. 系统/基础协议 (0 - 999)
-	// ==========================================
-	OpCode_OP_SYS_HEARTBEAT    OpCode = 1 // 心跳
-	OpCode_OP_SYS_ERROR_NOTICE OpCode = 2 // 通用错误推送
-	OpCode_OP_SYS_KICK_NOTICE  OpCode = 3 // 强制下线通知
-	// ==========================================
-	// 2. 登录系统 (1000 - 1999)
-	// ==========================================
-	OpCode_OP_LOGIN_REQ  OpCode = 1000 // 登录请求
-	OpCode_OP_LOGIN_RES  OpCode = 1001 // 登录响应
-	OpCode_OP_LOGOUT_REQ OpCode = 1002 // 登出请求
-	OpCode_OP_LOGOUT_RES OpCode = 1003 // 登出响应
-	// ==========================================
-	// 3. 网关系统 (2000 - 2999)
-	// ==========================================
-	OpCode_OP_GW_HANDSHAKE OpCode = 2000 // 网关握手
-	OpCode_OP_GW_KEEPALIVE OpCode = 2001 // 网关保活
+	// 系统协议
+	OpCode_OP_SYS_HEARTBEAT OpCode = 1 // 心跳
+	// 登录系统 (1000 - 1999)
+	OpCode_OP_LOGIN_REQ OpCode = 1000 // 登录请求
+	OpCode_OP_LOGIN_RES OpCode = 1001 // 登录响应
 )
 
 // Enum value maps for OpCode.
@@ -52,26 +38,14 @@ var (
 	OpCode_name = map[int32]string{
 		0:    "OP_NONE",
 		1:    "OP_SYS_HEARTBEAT",
-		2:    "OP_SYS_ERROR_NOTICE",
-		3:    "OP_SYS_KICK_NOTICE",
 		1000: "OP_LOGIN_REQ",
 		1001: "OP_LOGIN_RES",
-		1002: "OP_LOGOUT_REQ",
-		1003: "OP_LOGOUT_RES",
-		2000: "OP_GW_HANDSHAKE",
-		2001: "OP_GW_KEEPALIVE",
 	}
 	OpCode_value = map[string]int32{
-		"OP_NONE":             0,
-		"OP_SYS_HEARTBEAT":    1,
-		"OP_SYS_ERROR_NOTICE": 2,
-		"OP_SYS_KICK_NOTICE":  3,
-		"OP_LOGIN_REQ":        1000,
-		"OP_LOGIN_RES":        1001,
-		"OP_LOGOUT_REQ":       1002,
-		"OP_LOGOUT_RES":       1003,
-		"OP_GW_HANDSHAKE":     2000,
-		"OP_GW_KEEPALIVE":     2001,
+		"OP_NONE":          0,
+		"OP_SYS_HEARTBEAT": 1,
+		"OP_LOGIN_REQ":     1000,
+		"OP_LOGIN_RES":     1001,
 	}
 )
 
@@ -106,18 +80,12 @@ var File_op_code_proto protoreflect.FileDescriptor
 
 const file_op_code_proto_rawDesc = "" +
 	"\n" +
-	"\rop_code.proto\x12\x03api*\xd6\x01\n" +
+	"\rop_code.proto\x12\x03api*Q\n" +
 	"\x06OpCode\x12\v\n" +
 	"\aOP_NONE\x10\x00\x12\x14\n" +
-	"\x10OP_SYS_HEARTBEAT\x10\x01\x12\x17\n" +
-	"\x13OP_SYS_ERROR_NOTICE\x10\x02\x12\x16\n" +
-	"\x12OP_SYS_KICK_NOTICE\x10\x03\x12\x11\n" +
+	"\x10OP_SYS_HEARTBEAT\x10\x01\x12\x11\n" +
 	"\fOP_LOGIN_REQ\x10\xe8\a\x12\x11\n" +
-	"\fOP_LOGIN_RES\x10\xe9\a\x12\x12\n" +
-	"\rOP_LOGOUT_REQ\x10\xea\a\x12\x12\n" +
-	"\rOP_LOGOUT_RES\x10\xeb\a\x12\x14\n" +
-	"\x0fOP_GW_HANDSHAKE\x10\xd0\x0f\x12\x14\n" +
-	"\x0fOP_GW_KEEPALIVE\x10\xd1\x0fB3Z1github.com/lk2023060901/xdooria-proto-api/api;apib\x06proto3"
+	"\fOP_LOGIN_RES\x10\xe9\aB3Z1github.com/lk2023060901/xdooria-proto-api/api;apib\x06proto3"
 
 var (
 	file_op_code_proto_rawDescOnce sync.Once
