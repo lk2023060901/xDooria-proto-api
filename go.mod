@@ -3,7 +3,7 @@ module github.com/lk2023060901/xdooria-proto-api
 go 1.25.4
 
 require (
-	github.com/lk2023060901/xdooria-proto-common v0.0.3
+	github.com/lk2023060901/xdooria-proto-common v0.0.4
 	google.golang.org/protobuf v1.36.11
 )
 
