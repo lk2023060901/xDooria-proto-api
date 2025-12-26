@@ -31,6 +31,8 @@ const (
 	// 登录系统 (1000 - 1999)
 	OpCode_OP_LOGIN_REQ OpCode = 1000 // 登录请求
 	OpCode_OP_LOGIN_RES OpCode = 1001 // 登录响应
+	OpCode_OP_AUTH_REQ  OpCode = 1002 // 授权请求 (携带 token)
+	OpCode_OP_AUTH_RES  OpCode = 1003 // 授权响应
 )
 
 // Enum value maps for OpCode.
@@ -40,12 +42,16 @@ var (
 		1:    "OP_SYS_HEARTBEAT",
 		1000: "OP_LOGIN_REQ",
 		1001: "OP_LOGIN_RES",
+		1002: "OP_AUTH_REQ",
+		1003: "OP_AUTH_RES",
 	}
 	OpCode_value = map[string]int32{
 		"OP_NONE":          0,
 		"OP_SYS_HEARTBEAT": 1,
 		"OP_LOGIN_REQ":     1000,
 		"OP_LOGIN_RES":     1001,
+		"OP_AUTH_REQ":      1002,
+		"OP_AUTH_RES":      1003,
 	}
 )
 

@@ -15,6 +15,7 @@ message LoginResponse {
     string token = 1;
     uint64 uid = 2;
     string nickname = 3;
+    string gateway_addr = 4;
 }
 
 // Local 登录凭证 (对应 LOGIN_TYPE_LOCAL)

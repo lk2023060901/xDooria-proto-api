@@ -79,6 +79,7 @@ type LoginResponse struct {
 	Token         string                 `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
 	Uid           uint64                 `protobuf:"varint,2,opt,name=uid,proto3" json:"uid,omitempty"`
 	Nickname      string                 `protobuf:"bytes,3,opt,name=nickname,proto3" json:"nickname,omitempty"`
+	GatewayAddr   string                 `protobuf:"bytes,4,opt,name=gateway_addr,json=gatewayAddr,proto3" json:"gateway_addr,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -130,6 +131,13 @@ func (x *LoginResponse) GetUid() uint64 {
 func (x *LoginResponse) GetNickname() string {
 	if x != nil {
 		return x.Nickname
+	}
+	return ""
+}
+
+func (x *LoginResponse) GetGatewayAddr() string {
+	if x != nil {
+		return x.GatewayAddr
 	}
 	return ""
 }
