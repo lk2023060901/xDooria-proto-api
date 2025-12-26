@@ -2,10 +2,8 @@ module github.com/lk2023060901/xdooria-proto-api
 
 go 1.25.4
 
-replace github.com/lk2023060901/xdooria-proto-common => ../xDooria-proto-common
-
 require (
-	github.com/lk2023060901/xdooria-proto-common v0.0.0-00010101000000-000000000000
+	github.com/lk2023060901/xdooria-proto-common v0.0.2
 	google.golang.org/protobuf v1.36.11
 )
 

@@ -7,7 +7,7 @@
 package login
 
 import (
-	xDooria_proto_common "github.com/xDooria/xDooria-proto-common"
+	xDooria_proto_common "github.com/lk2023060901/xdooria-proto-common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
