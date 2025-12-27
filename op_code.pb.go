@@ -26,7 +26,7 @@ type OpCode int32
 
 const (
 	OpCode_OP_NONE OpCode = 0
-	// 系统协议
+	// 系统协议 (1 - 99)
 	OpCode_OP_SYS_HEARTBEAT OpCode = 1 // 心跳
 	// 登录系统 (1000 - 1999)
 	OpCode_OP_LOGIN_REQ     OpCode = 1000 // 登录请求
@@ -35,6 +35,9 @@ const (
 	OpCode_OP_AUTH_RES      OpCode = 1003 // 网关认证响应 (SessionToken)
 	OpCode_OP_RECONNECT_REQ OpCode = 1004 // 网关重连请求 (SessionToken)
 	OpCode_OP_RECONNECT_RES OpCode = 1005 // 网关重连响应
+	// 场景系统 (2000 - 2999)
+	OpCode_OP_ENTER_SCENE_REQ OpCode = 2000 // 进入场景请求
+	OpCode_OP_ENTER_SCENE_RES OpCode = 2001 // 进入场景响应
 )
 
 // Enum value maps for OpCode.
@@ -48,16 +51,20 @@ var (
 		1003: "OP_AUTH_RES",
 		1004: "OP_RECONNECT_REQ",
 		1005: "OP_RECONNECT_RES",
+		2000: "OP_ENTER_SCENE_REQ",
+		2001: "OP_ENTER_SCENE_RES",
 	}
 	OpCode_value = map[string]int32{
-		"OP_NONE":          0,
-		"OP_SYS_HEARTBEAT": 1,
-		"OP_LOGIN_REQ":     1000,
-		"OP_LOGIN_RES":     1001,
-		"OP_AUTH_REQ":      1002,
-		"OP_AUTH_RES":      1003,
-		"OP_RECONNECT_REQ": 1004,
-		"OP_RECONNECT_RES": 1005,
+		"OP_NONE":            0,
+		"OP_SYS_HEARTBEAT":   1,
+		"OP_LOGIN_REQ":       1000,
+		"OP_LOGIN_RES":       1001,
+		"OP_AUTH_REQ":        1002,
+		"OP_AUTH_RES":        1003,
+		"OP_RECONNECT_REQ":   1004,
+		"OP_RECONNECT_RES":   1005,
+		"OP_ENTER_SCENE_REQ": 2000,
+		"OP_ENTER_SCENE_RES": 2001,
 	}
 )
 
@@ -92,7 +99,7 @@ var File_op_code_proto protoreflect.FileDescriptor
 
 const file_op_code_proto_rawDesc = "" +
 	"\n" +
-	"\rop_code.proto\x12\x03api*\xa3\x01\n" +
+	"\rop_code.proto\x12\x03api*\xd5\x01\n" +
 	"\x06OpCode\x12\v\n" +
 	"\aOP_NONE\x10\x00\x12\x14\n" +
 	"\x10OP_SYS_HEARTBEAT\x10\x01\x12\x11\n" +
@@ -101,7 +108,9 @@ const file_op_code_proto_rawDesc = "" +
 	"\vOP_AUTH_REQ\x10\xea\a\x12\x10\n" +
 	"\vOP_AUTH_RES\x10\xeb\a\x12\x15\n" +
 	"\x10OP_RECONNECT_REQ\x10\xec\a\x12\x15\n" +
-	"\x10OP_RECONNECT_RES\x10\xed\aB/Z-github.com/lk2023060901/xdooria-proto-api;apib\x06proto3"
+	"\x10OP_RECONNECT_RES\x10\xed\a\x12\x17\n" +
+	"\x12OP_ENTER_SCENE_REQ\x10\xd0\x0f\x12\x17\n" +
+	"\x12OP_ENTER_SCENE_RES\x10\xd1\x0fB/Z-github.com/lk2023060901/xdooria-proto-api;apib\x06proto3"
 
 var (
 	file_op_code_proto_rawDescOnce sync.Once

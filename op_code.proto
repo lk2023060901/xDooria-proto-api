@@ -8,7 +8,7 @@ option go_package = "github.com/lk2023060901/xdooria-proto-api;api";
 enum OpCode {
     OP_NONE = 0;
 
-    // 系统协议
+    // 系统协议 (1 - 99)
     OP_SYS_HEARTBEAT = 1;     // 心跳
 
     // 登录系统 (1000 - 1999)
@@ -18,4 +18,8 @@ enum OpCode {
     OP_AUTH_RES = 1003;       // 网关认证响应 (SessionToken)
     OP_RECONNECT_REQ = 1004;  // 网关重连请求 (SessionToken)
     OP_RECONNECT_RES = 1005;  // 网关重连响应
+
+    // 场景系统 (2000 - 2999)
+    OP_ENTER_SCENE_REQ = 2000;  // 进入场景请求
+    OP_ENTER_SCENE_RES = 2001;  // 进入场景响应
 }
