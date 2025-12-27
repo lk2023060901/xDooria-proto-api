@@ -11,5 +11,10 @@ enum ErrorCode {
     ERR_TOKEN_EXPIRED = 2;         // Token 已过期
     ERR_SESSION_NOT_FOUND = 3;     // 会话不存在
     ERR_ALREADY_AUTHENTICATED = 4; // 已认证，重复请求
+    ERR_NOT_AUTHENTICATED = 5;     // 未认证
+    ERR_INVALID_ROLE = 6;          // 无效的角色
+    ERR_NICKNAME_INVALID = 7;      // 昵称无效
+    ERR_NICKNAME_EXISTS = 8;       // 昵称已存在
+    ERR_ROLE_LIMIT_EXCEEDED = 9;   // 角色数量达到上限
     ERR_INTERNAL = 99;             // 内部错误
 }

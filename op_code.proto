@@ -15,9 +15,15 @@ enum OpCode {
     OP_LOGIN_REQ = 1000;      // 登录请求
     OP_LOGIN_RES = 1001;      // 登录响应
     OP_AUTH_REQ = 1002;       // 网关首次认证请求 (LoginToken)
-    OP_AUTH_RES = 1003;       // 网关认证响应 (SessionToken)
+    OP_AUTH_RES = 1003;       // 网关认证响应 (SessionToken, UID, Roles)
     OP_RECONNECT_REQ = 1004;  // 网关重连请求 (SessionToken)
     OP_RECONNECT_RES = 1005;  // 网关重连响应
+    OP_SELECT_ROLE_REQ = 1006; // 选择角色请求
+    OP_SELECT_ROLE_RES = 1007; // 选择角色响应
+    OP_CREATE_ROLE_REQ = 1008; // 创建角色请求
+    OP_CREATE_ROLE_RES = 1009; // 创建角色响应
+    OP_GET_ROLES_REQ = 1010;   // 获取角色列表请求
+    OP_GET_ROLES_RES = 1011;   // 获取角色列表响应
 
     // 场景系统 (2000 - 2999)
     OP_ENTER_SCENE_REQ = 2000;  // 进入场景请求
