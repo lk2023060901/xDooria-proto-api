@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package gateway;
+
+option go_package = "github.com/lk2023060901/xdooria-proto-api/gateway;gateway";
+
+// AuthRequest 网关首次认证请求 (OP_AUTH_REQ)
+message AuthRequest {
+    string login_token = 1;  // Login 服务签发的 token
+}
+
+// AuthResponse 网关认证响应 (OP_AUTH_RES)
+message AuthResponse {
+    uint32 code = 1;   // 错误码
+    string token = 2;  // Gateway 签发的会话 token
+}
+
+// ReconnectRequest 网关重连请求 (OP_RECONNECT_REQ)
+message ReconnectRequest {
+    string token = 1;  // Gateway 签发的 token
+}
+
+// ReconnectResponse 网关重连响应 (OP_RECONNECT_RES)
+message ReconnectResponse {
+    uint32 code = 1;   // 错误码
+    string token = 2;  // 新的 token (续期)
+}

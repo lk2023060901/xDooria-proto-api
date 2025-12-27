@@ -14,6 +14,8 @@ enum OpCode {
     // 登录系统 (1000 - 1999)
     OP_LOGIN_REQ = 1000;      // 登录请求
     OP_LOGIN_RES = 1001;      // 登录响应
-    OP_AUTH_REQ = 1002;       // 授权请求 (携带 token)
-    OP_AUTH_RES = 1003;       // 授权响应
+    OP_AUTH_REQ = 1002;       // 网关首次认证请求 (LoginToken)
+    OP_AUTH_RES = 1003;       // 网关认证响应 (SessionToken)
+    OP_RECONNECT_REQ = 1004;  // 网关重连请求 (SessionToken)
+    OP_RECONNECT_RES = 1005;  // 网关重连响应
 }

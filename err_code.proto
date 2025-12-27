@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "github.com/lk2023060901/xdooria-proto-api;api";
+
+// 错误码
+enum ErrorCode {
+    ERR_SUCCESS = 0;               // 成功
+    ERR_TOKEN_INVALID = 1;         // Token 无效
+    ERR_TOKEN_EXPIRED = 2;         // Token 已过期
+    ERR_SESSION_NOT_FOUND = 3;     // 会话不存在
+    ERR_ALREADY_AUTHENTICATED = 4; // 已认证，重复请求
+    ERR_INTERNAL = 99;             // 内部错误
+}
