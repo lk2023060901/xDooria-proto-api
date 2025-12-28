@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "github.com/lk2023060901/xdooria-proto-api;api";
+
+import "error.proto";
+import "role_type.proto";
+import "scene_type.proto";
+
+// 进入场景请求
+message EnterSceneRequest {
+    // 预留扩展
+}
+
+// 进入场景响应
+message EnterSceneResponse {
+    common.ErrCode code = 1;  // 错误码
+    RoleInfo role = 2;   // 角色基础信息
+    SceneInfo scene = 3;      // 场景信息
+}

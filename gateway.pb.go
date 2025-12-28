@@ -4,7 +4,7 @@
 // 	protoc        v6.32.1
 // source: gateway.proto
 
-package gateway
+package api
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -66,89 +66,19 @@ func (x *AuthRequest) GetLoginToken() string {
 	return ""
 }
 
-// RoleInfo 角色简要信息
-type RoleInfo struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	RoleId        int64                  `protobuf:"varint,1,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"` // 角色ID
-	Nickname      string                 `protobuf:"bytes,2,opt,name=nickname,proto3" json:"nickname,omitempty"`            // 角色昵称
-	Level         int32                  `protobuf:"varint,3,opt,name=level,proto3" json:"level,omitempty"`                 // 角色等级
-	Status        int32                  `protobuf:"varint,4,opt,name=status,proto3" json:"status,omitempty"`               // 角色状态 (0=正常, 1=封禁)
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RoleInfo) Reset() {
-	*x = RoleInfo{}
-	mi := &file_gateway_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RoleInfo) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RoleInfo) ProtoMessage() {}
-
-func (x *RoleInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RoleInfo.ProtoReflect.Descriptor instead.
-func (*RoleInfo) Descriptor() ([]byte, []int) {
-	return file_gateway_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *RoleInfo) GetRoleId() int64 {
-	if x != nil {
-		return x.RoleId
-	}
-	return 0
-}
-
-func (x *RoleInfo) GetNickname() string {
-	if x != nil {
-		return x.Nickname
-	}
-	return ""
-}
-
-func (x *RoleInfo) GetLevel() int32 {
-	if x != nil {
-		return x.Level
-	}
-	return 0
-}
-
-func (x *RoleInfo) GetStatus() int32 {
-	if x != nil {
-		return x.Status
-	}
-	return 0
-}
-
 // AuthResponse 网关认证响应 (OP_AUTH_RES)
 type AuthResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Code          uint32                 `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`  // 错误码
 	Token         string                 `protobuf:"bytes,2,opt,name=token,proto3" json:"token,omitempty"` // Gateway 签发的会话 token
 	Uid           uint64                 `protobuf:"varint,3,opt,name=uid,proto3" json:"uid,omitempty"`    // 用户ID
-	Roles         []*RoleInfo            `protobuf:"bytes,4,rep,name=roles,proto3" json:"roles,omitempty"` // 该账号下的所有角色
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *AuthResponse) Reset() {
 	*x = AuthResponse{}
-	mi := &file_gateway_proto_msgTypes[2]
+	mi := &file_gateway_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -160,7 +90,7 @@ func (x *AuthResponse) String() string {
 func (*AuthResponse) ProtoMessage() {}
 
 func (x *AuthResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_proto_msgTypes[2]
+	mi := &file_gateway_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -173,7 +103,7 @@ func (x *AuthResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AuthResponse.ProtoReflect.Descriptor instead.
 func (*AuthResponse) Descriptor() ([]byte, []int) {
-	return file_gateway_proto_rawDescGZIP(), []int{2}
+	return file_gateway_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *AuthResponse) GetCode() uint32 {
@@ -197,13 +127,6 @@ func (x *AuthResponse) GetUid() uint64 {
 	return 0
 }
 
-func (x *AuthResponse) GetRoles() []*RoleInfo {
-	if x != nil {
-		return x.Roles
-	}
-	return nil
-}
-
 // ReconnectRequest 网关重连请求 (OP_RECONNECT_REQ)
 type ReconnectRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
@@ -214,7 +137,7 @@ type ReconnectRequest struct {
 
 func (x *ReconnectRequest) Reset() {
 	*x = ReconnectRequest{}
-	mi := &file_gateway_proto_msgTypes[3]
+	mi := &file_gateway_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -226,7 +149,7 @@ func (x *ReconnectRequest) String() string {
 func (*ReconnectRequest) ProtoMessage() {}
 
 func (x *ReconnectRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_proto_msgTypes[3]
+	mi := &file_gateway_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -239,7 +162,7 @@ func (x *ReconnectRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReconnectRequest.ProtoReflect.Descriptor instead.
 func (*ReconnectRequest) Descriptor() ([]byte, []int) {
-	return file_gateway_proto_rawDescGZIP(), []int{3}
+	return file_gateway_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *ReconnectRequest) GetToken() string {
@@ -260,7 +183,7 @@ type ReconnectResponse struct {
 
 func (x *ReconnectResponse) Reset() {
 	*x = ReconnectResponse{}
-	mi := &file_gateway_proto_msgTypes[4]
+	mi := &file_gateway_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -272,7 +195,7 @@ func (x *ReconnectResponse) String() string {
 func (*ReconnectResponse) ProtoMessage() {}
 
 func (x *ReconnectResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_proto_msgTypes[4]
+	mi := &file_gateway_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -285,7 +208,7 @@ func (x *ReconnectResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReconnectResponse.ProtoReflect.Descriptor instead.
 func (*ReconnectResponse) Descriptor() ([]byte, []int) {
-	return file_gateway_proto_rawDescGZIP(), []int{4}
+	return file_gateway_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *ReconnectResponse) GetCode() uint32 {
@@ -312,7 +235,7 @@ type SelectRoleRequest struct {
 
 func (x *SelectRoleRequest) Reset() {
 	*x = SelectRoleRequest{}
-	mi := &file_gateway_proto_msgTypes[5]
+	mi := &file_gateway_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -324,7 +247,7 @@ func (x *SelectRoleRequest) String() string {
 func (*SelectRoleRequest) ProtoMessage() {}
 
 func (x *SelectRoleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_proto_msgTypes[5]
+	mi := &file_gateway_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -337,7 +260,7 @@ func (x *SelectRoleRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SelectRoleRequest.ProtoReflect.Descriptor instead.
 func (*SelectRoleRequest) Descriptor() ([]byte, []int) {
-	return file_gateway_proto_rawDescGZIP(), []int{5}
+	return file_gateway_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *SelectRoleRequest) GetRoleId() int64 {
@@ -358,7 +281,7 @@ type SelectRoleResponse struct {
 
 func (x *SelectRoleResponse) Reset() {
 	*x = SelectRoleResponse{}
-	mi := &file_gateway_proto_msgTypes[6]
+	mi := &file_gateway_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -370,7 +293,7 @@ func (x *SelectRoleResponse) String() string {
 func (*SelectRoleResponse) ProtoMessage() {}
 
 func (x *SelectRoleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_proto_msgTypes[6]
+	mi := &file_gateway_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -383,7 +306,7 @@ func (x *SelectRoleResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SelectRoleResponse.ProtoReflect.Descriptor instead.
 func (*SelectRoleResponse) Descriptor() ([]byte, []int) {
-	return file_gateway_proto_rawDescGZIP(), []int{6}
+	return file_gateway_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *SelectRoleResponse) GetCode() uint32 {
@@ -412,7 +335,7 @@ type CreateRoleRequest struct {
 
 func (x *CreateRoleRequest) Reset() {
 	*x = CreateRoleRequest{}
-	mi := &file_gateway_proto_msgTypes[7]
+	mi := &file_gateway_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -424,7 +347,7 @@ func (x *CreateRoleRequest) String() string {
 func (*CreateRoleRequest) ProtoMessage() {}
 
 func (x *CreateRoleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_proto_msgTypes[7]
+	mi := &file_gateway_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -437,7 +360,7 @@ func (x *CreateRoleRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateRoleRequest.ProtoReflect.Descriptor instead.
 func (*CreateRoleRequest) Descriptor() ([]byte, []int) {
-	return file_gateway_proto_rawDescGZIP(), []int{7}
+	return file_gateway_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *CreateRoleRequest) GetNickname() string {
@@ -472,7 +395,7 @@ type CreateRoleResponse struct {
 
 func (x *CreateRoleResponse) Reset() {
 	*x = CreateRoleResponse{}
-	mi := &file_gateway_proto_msgTypes[8]
+	mi := &file_gateway_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -484,7 +407,7 @@ func (x *CreateRoleResponse) String() string {
 func (*CreateRoleResponse) ProtoMessage() {}
 
 func (x *CreateRoleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_proto_msgTypes[8]
+	mi := &file_gateway_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -497,7 +420,7 @@ func (x *CreateRoleResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateRoleResponse.ProtoReflect.Descriptor instead.
 func (*CreateRoleResponse) Descriptor() ([]byte, []int) {
-	return file_gateway_proto_rawDescGZIP(), []int{8}
+	return file_gateway_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *CreateRoleResponse) GetCode() uint32 {
@@ -514,24 +437,108 @@ func (x *CreateRoleResponse) GetRole() *RoleInfo {
 	return nil
 }
 
+// GetRolesRequest 获取角色列表请求 (OP_GET_ROLES_REQ)
+type GetRolesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRolesRequest) Reset() {
+	*x = GetRolesRequest{}
+	mi := &file_gateway_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRolesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRolesRequest) ProtoMessage() {}
+
+func (x *GetRolesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_gateway_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRolesRequest.ProtoReflect.Descriptor instead.
+func (*GetRolesRequest) Descriptor() ([]byte, []int) {
+	return file_gateway_proto_rawDescGZIP(), []int{8}
+}
+
+// GetRolesResponse 获取角色列表响应 (OP_GET_ROLES_RES)
+type GetRolesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Code          uint32                 `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`  // 错误码
+	Roles         []*RoleInfo            `protobuf:"bytes,2,rep,name=roles,proto3" json:"roles,omitempty"` // 该账号下的所有角色
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRolesResponse) Reset() {
+	*x = GetRolesResponse{}
+	mi := &file_gateway_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRolesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRolesResponse) ProtoMessage() {}
+
+func (x *GetRolesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_gateway_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRolesResponse.ProtoReflect.Descriptor instead.
+func (*GetRolesResponse) Descriptor() ([]byte, []int) {
+	return file_gateway_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetRolesResponse) GetCode() uint32 {
+	if x != nil {
+		return x.Code
+	}
+	return 0
+}
+
+func (x *GetRolesResponse) GetRoles() []*RoleInfo {
+	if x != nil {
+		return x.Roles
+	}
+	return nil
+}
+
 var File_gateway_proto protoreflect.FileDescriptor
 
 const file_gateway_proto_rawDesc = "" +
 	"\n" +
-	"\rgateway.proto\x12\agateway\".\n" +
+	"\rgateway.proto\x12\x03api\x1a\x0frole_type.proto\".\n" +
 	"\vAuthRequest\x12\x1f\n" +
 	"\vlogin_token\x18\x01 \x01(\tR\n" +
-	"loginToken\"m\n" +
-	"\bRoleInfo\x12\x17\n" +
-	"\arole_id\x18\x01 \x01(\x03R\x06roleId\x12\x1a\n" +
-	"\bnickname\x18\x02 \x01(\tR\bnickname\x12\x14\n" +
-	"\x05level\x18\x03 \x01(\x05R\x05level\x12\x16\n" +
-	"\x06status\x18\x04 \x01(\x05R\x06status\"s\n" +
+	"loginToken\"J\n" +
 	"\fAuthResponse\x12\x12\n" +
 	"\x04code\x18\x01 \x01(\rR\x04code\x12\x14\n" +
 	"\x05token\x18\x02 \x01(\tR\x05token\x12\x10\n" +
-	"\x03uid\x18\x03 \x01(\x04R\x03uid\x12'\n" +
-	"\x05roles\x18\x04 \x03(\v2\x11.gateway.RoleInfoR\x05roles\"(\n" +
+	"\x03uid\x18\x03 \x01(\x04R\x03uid\"(\n" +
 	"\x10ReconnectRequest\x12\x14\n" +
 	"\x05token\x18\x01 \x01(\tR\x05token\"=\n" +
 	"\x11ReconnectResponse\x12\x12\n" +
@@ -547,10 +554,14 @@ const file_gateway_proto_rawDesc = "" +
 	"\x06gender\x18\x02 \x01(\x05R\x06gender\x12\x1e\n" +
 	"\n" +
 	"appearance\x18\x03 \x01(\tR\n" +
-	"appearance\"O\n" +
+	"appearance\"K\n" +
 	"\x12CreateRoleResponse\x12\x12\n" +
-	"\x04code\x18\x01 \x01(\rR\x04code\x12%\n" +
-	"\x04role\x18\x02 \x01(\v2\x11.gateway.RoleInfoR\x04roleB;Z9github.com/lk2023060901/xdooria-proto-api/gateway;gatewayb\x06proto3"
+	"\x04code\x18\x01 \x01(\rR\x04code\x12!\n" +
+	"\x04role\x18\x02 \x01(\v2\r.api.RoleInfoR\x04role\"\x11\n" +
+	"\x0fGetRolesRequest\"K\n" +
+	"\x10GetRolesResponse\x12\x12\n" +
+	"\x04code\x18\x01 \x01(\rR\x04code\x12#\n" +
+	"\x05roles\x18\x02 \x03(\v2\r.api.RoleInfoR\x05rolesB/Z-github.com/lk2023060901/xdooria-proto-api;apib\x06proto3"
 
 var (
 	file_gateway_proto_rawDescOnce sync.Once
@@ -564,26 +575,28 @@ func file_gateway_proto_rawDescGZIP() []byte {
 	return file_gateway_proto_rawDescData
 }
 
-var file_gateway_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
+var file_gateway_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_gateway_proto_goTypes = []any{
-	(*AuthRequest)(nil),        // 0: gateway.AuthRequest
-	(*RoleInfo)(nil),           // 1: gateway.RoleInfo
-	(*AuthResponse)(nil),       // 2: gateway.AuthResponse
-	(*ReconnectRequest)(nil),   // 3: gateway.ReconnectRequest
-	(*ReconnectResponse)(nil),  // 4: gateway.ReconnectResponse
-	(*SelectRoleRequest)(nil),  // 5: gateway.SelectRoleRequest
-	(*SelectRoleResponse)(nil), // 6: gateway.SelectRoleResponse
-	(*CreateRoleRequest)(nil),  // 7: gateway.CreateRoleRequest
-	(*CreateRoleResponse)(nil), // 8: gateway.CreateRoleResponse
+	(*AuthRequest)(nil),        // 0: api.AuthRequest
+	(*AuthResponse)(nil),       // 1: api.AuthResponse
+	(*ReconnectRequest)(nil),   // 2: api.ReconnectRequest
+	(*ReconnectResponse)(nil),  // 3: api.ReconnectResponse
+	(*SelectRoleRequest)(nil),  // 4: api.SelectRoleRequest
+	(*SelectRoleResponse)(nil), // 5: api.SelectRoleResponse
+	(*CreateRoleRequest)(nil),  // 6: api.CreateRoleRequest
+	(*CreateRoleResponse)(nil), // 7: api.CreateRoleResponse
+	(*GetRolesRequest)(nil),    // 8: api.GetRolesRequest
+	(*GetRolesResponse)(nil),   // 9: api.GetRolesResponse
+	(*RoleInfo)(nil),           // 10: api.RoleInfo
 }
 var file_gateway_proto_depIdxs = []int32{
-	1, // 0: gateway.AuthResponse.roles:type_name -> gateway.RoleInfo
-	1, // 1: gateway.CreateRoleResponse.role:type_name -> gateway.RoleInfo
-	2, // [2:2] is the sub-list for method output_type
-	2, // [2:2] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	10, // 0: api.CreateRoleResponse.role:type_name -> api.RoleInfo
+	10, // 1: api.GetRolesResponse.roles:type_name -> api.RoleInfo
+	2,  // [2:2] is the sub-list for method output_type
+	2,  // [2:2] is the sub-list for method input_type
+	2,  // [2:2] is the sub-list for extension type_name
+	2,  // [2:2] is the sub-list for extension extendee
+	0,  // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_gateway_proto_init() }
@@ -591,13 +604,14 @@ func file_gateway_proto_init() {
 	if File_gateway_proto != nil {
 		return
 	}
+	file_role_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_gateway_proto_rawDesc), len(file_gateway_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   9,
+			NumMessages:   10,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

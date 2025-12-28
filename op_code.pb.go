@@ -39,6 +39,8 @@ const (
 	OpCode_OP_SELECT_ROLE_RES OpCode = 1007 // 选择角色响应
 	OpCode_OP_CREATE_ROLE_REQ OpCode = 1008 // 创建角色请求
 	OpCode_OP_CREATE_ROLE_RES OpCode = 1009 // 创建角色响应
+	OpCode_OP_GET_ROLES_REQ   OpCode = 1010 // 获取角色列表请求
+	OpCode_OP_GET_ROLES_RES   OpCode = 1011 // 获取角色列表响应
 	// 场景系统 (2000 - 2999)
 	OpCode_OP_ENTER_SCENE_REQ OpCode = 2000 // 进入场景请求
 	OpCode_OP_ENTER_SCENE_RES OpCode = 2001 // 进入场景响应
@@ -59,6 +61,8 @@ var (
 		1007: "OP_SELECT_ROLE_RES",
 		1008: "OP_CREATE_ROLE_REQ",
 		1009: "OP_CREATE_ROLE_RES",
+		1010: "OP_GET_ROLES_REQ",
+		1011: "OP_GET_ROLES_RES",
 		2000: "OP_ENTER_SCENE_REQ",
 		2001: "OP_ENTER_SCENE_RES",
 	}
@@ -75,6 +79,8 @@ var (
 		"OP_SELECT_ROLE_RES": 1007,
 		"OP_CREATE_ROLE_REQ": 1008,
 		"OP_CREATE_ROLE_RES": 1009,
+		"OP_GET_ROLES_REQ":   1010,
+		"OP_GET_ROLES_RES":   1011,
 		"OP_ENTER_SCENE_REQ": 2000,
 		"OP_ENTER_SCENE_RES": 2001,
 	}
@@ -111,7 +117,7 @@ var File_op_code_proto protoreflect.FileDescriptor
 
 const file_op_code_proto_rawDesc = "" +
 	"\n" +
-	"\rop_code.proto\x12\x03api*\xb9\x02\n" +
+	"\rop_code.proto\x12\x03api*\xe7\x02\n" +
 	"\x06OpCode\x12\v\n" +
 	"\aOP_NONE\x10\x00\x12\x14\n" +
 	"\x10OP_SYS_HEARTBEAT\x10\x01\x12\x11\n" +
@@ -124,7 +130,9 @@ const file_op_code_proto_rawDesc = "" +
 	"\x12OP_SELECT_ROLE_REQ\x10\xee\a\x12\x17\n" +
 	"\x12OP_SELECT_ROLE_RES\x10\xef\a\x12\x17\n" +
 	"\x12OP_CREATE_ROLE_REQ\x10\xf0\a\x12\x17\n" +
-	"\x12OP_CREATE_ROLE_RES\x10\xf1\a\x12\x17\n" +
+	"\x12OP_CREATE_ROLE_RES\x10\xf1\a\x12\x15\n" +
+	"\x10OP_GET_ROLES_REQ\x10\xf2\a\x12\x15\n" +
+	"\x10OP_GET_ROLES_RES\x10\xf3\a\x12\x17\n" +
 	"\x12OP_ENTER_SCENE_REQ\x10\xd0\x0f\x12\x17\n" +
 	"\x12OP_ENTER_SCENE_RES\x10\xd1\x0fB/Z-github.com/lk2023060901/xdooria-proto-api;apib\x06proto3"
 

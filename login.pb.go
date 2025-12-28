@@ -4,10 +4,10 @@
 // 	protoc        v6.32.1
 // source: login.proto
 
-package login
+package api
 
 import (
-	xDooria_proto_common "github.com/lk2023060901/xdooria-proto-common"
+	xdooria_proto_common "github.com/lk2023060901/xdooria-proto-common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -24,7 +24,7 @@ const (
 
 type LoginRequest struct {
 	state         protoimpl.MessageState         `protogen:"open.v1"`
-	LoginType     xDooria_proto_common.LoginType `protobuf:"varint,1,opt,name=login_type,json=loginType,proto3,enum=common.LoginType" json:"login_type,omitempty"`
+	LoginType     xdooria_proto_common.LoginType `protobuf:"varint,1,opt,name=login_type,json=loginType,proto3,enum=common.LoginType" json:"login_type,omitempty"`
 	Credentials   []byte                         `protobuf:"bytes,2,opt,name=credentials,proto3" json:"credentials,omitempty"` // 序列化后的平台凭证
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -60,11 +60,11 @@ func (*LoginRequest) Descriptor() ([]byte, []int) {
 	return file_login_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *LoginRequest) GetLoginType() xDooria_proto_common.LoginType {
+func (x *LoginRequest) GetLoginType() xdooria_proto_common.LoginType {
 	if x != nil {
 		return x.LoginType
 	}
-	return xDooria_proto_common.LoginType(0)
+	return xdooria_proto_common.LoginType(0)
 }
 
 func (x *LoginRequest) GetCredentials() []byte {
@@ -142,76 +142,20 @@ func (x *LoginResponse) GetGatewayAddr() string {
 	return ""
 }
 
-// Local 登录凭证 (对应 LOGIN_TYPE_LOCAL)
-type LocalCredentials struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Username      string                 `protobuf:"bytes,1,opt,name=username,proto3" json:"username,omitempty"`
-	Password      string                 `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *LocalCredentials) Reset() {
-	*x = LocalCredentials{}
-	mi := &file_login_proto_msgTypes[2]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *LocalCredentials) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*LocalCredentials) ProtoMessage() {}
-
-func (x *LocalCredentials) ProtoReflect() protoreflect.Message {
-	mi := &file_login_proto_msgTypes[2]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use LocalCredentials.ProtoReflect.Descriptor instead.
-func (*LocalCredentials) Descriptor() ([]byte, []int) {
-	return file_login_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *LocalCredentials) GetUsername() string {
-	if x != nil {
-		return x.Username
-	}
-	return ""
-}
-
-func (x *LocalCredentials) GetPassword() string {
-	if x != nil {
-		return x.Password
-	}
-	return ""
-}
-
 var File_login_proto protoreflect.FileDescriptor
 
 const file_login_proto_rawDesc = "" +
 	"\n" +
-	"\vlogin.proto\x12\x05login\x1a\n" +
-	"auth.proto\"b\n" +
+	"\vlogin.proto\x12\x03api\x1a\x10login_type.proto\"b\n" +
 	"\fLoginRequest\x120\n" +
 	"\n" +
 	"login_type\x18\x01 \x01(\x0e2\x11.common.LoginTypeR\tloginType\x12 \n" +
-	"\vcredentials\x18\x02 \x01(\fR\vcredentials\"S\n" +
+	"\vcredentials\x18\x02 \x01(\fR\vcredentials\"v\n" +
 	"\rLoginResponse\x12\x14\n" +
 	"\x05token\x18\x01 \x01(\tR\x05token\x12\x10\n" +
 	"\x03uid\x18\x02 \x01(\x04R\x03uid\x12\x1a\n" +
-	"\bnickname\x18\x03 \x01(\tR\bnickname\"J\n" +
-	"\x10LocalCredentials\x12\x1a\n" +
-	"\busername\x18\x01 \x01(\tR\busername\x12\x1a\n" +
-	"\bpassword\x18\x02 \x01(\tR\bpasswordB7Z5github.com/lk2023060901/xdooria-proto-api/login;loginb\x06proto3"
+	"\bnickname\x18\x03 \x01(\tR\bnickname\x12!\n" +
+	"\fgateway_addr\x18\x04 \x01(\tR\vgatewayAddrB/Z-github.com/lk2023060901/xdooria-proto-api;apib\x06proto3"
 
 var (
 	file_login_proto_rawDescOnce sync.Once
@@ -225,15 +169,14 @@ func file_login_proto_rawDescGZIP() []byte {
 	return file_login_proto_rawDescData
 }
 
-var file_login_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_login_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_login_proto_goTypes = []any{
-	(*LoginRequest)(nil),                // 0: login.LoginRequest
-	(*LoginResponse)(nil),               // 1: login.LoginResponse
-	(*LocalCredentials)(nil),            // 2: login.LocalCredentials
-	(xDooria_proto_common.LoginType)(0), // 3: common.LoginType
+	(*LoginRequest)(nil),                // 0: api.LoginRequest
+	(*LoginResponse)(nil),               // 1: api.LoginResponse
+	(xdooria_proto_common.LoginType)(0), // 2: common.LoginType
 }
 var file_login_proto_depIdxs = []int32{
-	3, // 0: login.LoginRequest.login_type:type_name -> common.LoginType
+	2, // 0: api.LoginRequest.login_type:type_name -> common.LoginType
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
@@ -252,7 +195,7 @@ func file_login_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_login_proto_rawDesc), len(file_login_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   3,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

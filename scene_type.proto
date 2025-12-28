@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "github.com/lk2023060901/xdooria-proto-api;api";
+
+// 场景信息
+message SceneInfo {
+    int32 map_id = 1;         // 地图ID
+    Position pos = 2;         // 位置
+}
+
+// 位置信息
+message Position {
+    float x = 1;
+    float y = 2;
+    float z = 3;
+    float rotation = 4;       // 朝向
+}
