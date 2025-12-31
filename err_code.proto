@@ -16,5 +16,11 @@ enum ErrorCode {
     ERR_NICKNAME_INVALID = 7;      // 昵称无效
     ERR_NICKNAME_EXISTS = 8;       // 昵称已存在
     ERR_ROLE_LIMIT_EXCEEDED = 9;   // 角色数量达到上限
+    ERR_NOT_FOUND = 10;            // 资源不存在
+    ERR_ALREADY_EXISTS = 11;       // 资源已存在
+    ERR_CONFIG_NOT_FOUND = 12;     // 配置不存在
+    ERR_PERMISSION_DENIED = 13;    // 权限不足
+    ERR_INSUFFICIENT_CURRENCY = 14; // 货币不足
+    ERR_NOT_IMPLEMENTED = 98;      // 功能未实现
     ERR_INTERNAL = 99;             // 内部错误
 }
