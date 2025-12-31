@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package api;
+
+import "smelt_type.proto";
+import "err_code.proto";
+
+option go_package = "github.com/lk2023060901/xdooria-proto-api;api";
+
+// 执行熔炼请求
+message SmeltDoRequest {
+    repeated int64 doll_ids = 1;  // 待熔炼的玩偶实例ID列表
+}
+
+// 执行熔炼响应
+message SmeltDoResponse {
+    ErrorCode code = 1;
+    SmeltResult result = 2;  // 熔炼结果
+}

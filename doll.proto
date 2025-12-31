@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package api;
+
+import "doll_type.proto";
+import "err_code.proto";
+
+option go_package = "github.com/lk2023060901/xdooria-proto-api;api";
+
+// 获取玩偶列表请求
+message DollListRequest {
+}
+
+// 获取玩偶列表响应
+message DollListResponse {
+    ErrorCode code = 1;
+    repeated DollItem dolls = 2;
+}
+
+// 收藏/取消收藏请求
+message DollFavoriteRequest {
+    int64 id = 1;        // 玩偶实例ID
+    bool favorite = 2;   // true=收藏, false=取消收藏
+}
+
+// 收藏/取消收藏响应
+message DollFavoriteResponse {
+    ErrorCode code = 1;
+    int64 id = 2;          // 玩偶实例ID
+    bool is_favorite = 3;  // 当前收藏状态
+}
+
+// 锁定/取消锁定请求
+message DollLockRequest {
+    int64 id = 1;      // 玩偶实例ID
+    bool lock = 2;     // true=锁定, false=取消锁定
+}
+
+// 锁定/取消锁定响应
+message DollLockResponse {
+    ErrorCode code = 1;
+    int64 id = 2;        // 玩偶实例ID
+    bool is_locked = 3;  // 当前锁定状态
+}
+
+// 兑换实体玩偶请求
+message DollRedeemRequest {
+    int64 id = 1;      // 玩偶实例ID
+}
+
+// 兑换实体玩偶响应
+message DollRedeemResponse {
+    ErrorCode code = 1;
+}

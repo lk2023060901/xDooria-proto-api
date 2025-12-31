@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package api;
+
+import "gacha_type.proto";
+import "err_code.proto";
+
+option go_package = "github.com/lk2023060901/xdooria-proto-api;api";
+
+// 获取盲盒列表请求
+message GachaListRequest {
+}
+
+// 获取盲盒列表响应
+message GachaListResponse {
+    ErrorCode code = 1;
+    repeated GachaPool pools = 2;
+}
+
+// 抽奖请求
+message GachaDrawRequest {
+    int32 pool_id = 1;      // 池子ID
+    int32 count = 2;        // 抽奖次数（1=单抽, 10=十连）
+}
+
+// 抽奖响应
+message GachaDrawResponse {
+    ErrorCode code = 1;
+    repeated GachaReward rewards = 2;  // 抽奖奖励列表
+    int32 draw_count = 3;              // 抽奖后累计次数
+}

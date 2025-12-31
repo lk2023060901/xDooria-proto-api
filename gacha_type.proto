@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "github.com/lk2023060901/xdooria-proto-api;api";
+
+// 盲盒池信息
+message GachaPool {
+    int32 id = 1;           // 池子ID
+    int32 draw_count = 2;   // 玩家已抽次数
+}
+
+// 抽奖奖励
+message GachaReward {
+    int32 item_type = 1;    // 奖励类型（1=玩偶, 2=道具）
+    int32 id = 2;           // 道具ID或掉落ID
+    int32 count = 3;        // 数量
+}

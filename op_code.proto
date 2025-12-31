@@ -28,4 +28,24 @@ enum OpCode {
     // 场景系统 (2000 - 2999)
     OP_ENTER_SCENE_REQ = 2000;  // 进入场景请求
     OP_ENTER_SCENE_RES = 2001;  // 进入场景响应
+
+    // 玩偶系统 (3000 - 3099)
+    OP_DOLL_LIST_REQ = 3000;      // 获取玩偶列表请求
+    OP_DOLL_LIST_RES = 3001;      // 获取玩偶列表响应
+    OP_DOLL_FAVORITE_REQ = 3002;  // 收藏/取消收藏请求
+    OP_DOLL_FAVORITE_RES = 3003;  // 收藏/取消收藏响应
+    OP_DOLL_LOCK_REQ = 3004;      // 锁定/取消锁定请求
+    OP_DOLL_LOCK_RES = 3005;      // 锁定/取消锁定响应
+    OP_DOLL_REDEEM_REQ = 3006;    // 兑换实体玩偶请求
+    OP_DOLL_REDEEM_RES = 3007;    // 兑换实体玩偶响应
+
+    // 开盲盒系统 (3100 - 3199)
+    OP_GACHA_LIST_REQ = 3100;     // 获取盲盒列表请求
+    OP_GACHA_LIST_RES = 3101;     // 获取盲盒列表响应
+    OP_GACHA_DRAW_REQ = 3102;     // 抽奖请求（单抽/十连）
+    OP_GACHA_DRAW_RES = 3103;     // 抽奖响应
+
+    // 熔炼系统 (3200 - 3299)
+    OP_SMELT_DO_REQ = 3200;       // 执行熔炼请求
+    OP_SMELT_DO_RES = 3201;       // 执行熔炼响应
 }
