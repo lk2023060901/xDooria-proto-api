@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package storage;
+
+import "storage/item_type.proto";
+
+option go_package = "github.com/lk2023060901/xdooria-proto-api/storage;storage";
+
+// 玩偶存储 - 扩展基础信息
+message StoredDoll {
+    ItemBase base = 1;
+    bool is_locked = 2;     // 是否锁定（防止误销毁）
+    bool is_redeemed = 3;   // 是否已兑换实物
+}
+
+// 玩偶背包
+message DollBag {
+    repeated StoredDoll items = 1;
+}

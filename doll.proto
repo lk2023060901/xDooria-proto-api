@@ -3,7 +3,7 @@ syntax = "proto3";
 package api;
 
 import "err_code.proto";
-import "storage/storage.proto";
+import "storage/storage_type.proto";
 
 option go_package = "github.com/lk2023060901/xdooria-proto-api;api";
 
