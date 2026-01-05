@@ -7,6 +7,7 @@
 package api
 
 import (
+	storage "github.com/lk2023060901/xdooria-proto-api/storage"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -119,16 +120,72 @@ func (x *SmeltDoResponse) GetResult() *SmeltResult {
 	return nil
 }
 
+// 熔炼结果
+type SmeltResult struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Doll          *storage.StoredDoll    `protobuf:"bytes,1,opt,name=doll,proto3" json:"doll,omitempty"`          // 熔炼产出的新玩偶
+	Upgraded      bool                   `protobuf:"varint,2,opt,name=upgraded,proto3" json:"upgraded,omitempty"` // 是否升品成功
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SmeltResult) Reset() {
+	*x = SmeltResult{}
+	mi := &file_smelt_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SmeltResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SmeltResult) ProtoMessage() {}
+
+func (x *SmeltResult) ProtoReflect() protoreflect.Message {
+	mi := &file_smelt_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SmeltResult.ProtoReflect.Descriptor instead.
+func (*SmeltResult) Descriptor() ([]byte, []int) {
+	return file_smelt_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *SmeltResult) GetDoll() *storage.StoredDoll {
+	if x != nil {
+		return x.Doll
+	}
+	return nil
+}
+
+func (x *SmeltResult) GetUpgraded() bool {
+	if x != nil {
+		return x.Upgraded
+	}
+	return false
+}
+
 var File_smelt_proto protoreflect.FileDescriptor
 
 const file_smelt_proto_rawDesc = "" +
 	"\n" +
-	"\vsmelt.proto\x12\x03api\x1a\x10smelt_type.proto\x1a\x0eerr_code.proto\"+\n" +
+	"\vsmelt.proto\x12\x03api\x1a\x0eerr_code.proto\x1a\x15storage/storage.proto\"+\n" +
 	"\x0eSmeltDoRequest\x12\x19\n" +
 	"\bdoll_ids\x18\x01 \x03(\x03R\adollIds\"_\n" +
 	"\x0fSmeltDoResponse\x12\"\n" +
 	"\x04code\x18\x01 \x01(\x0e2\x0e.api.ErrorCodeR\x04code\x12(\n" +
-	"\x06result\x18\x02 \x01(\v2\x10.api.SmeltResultR\x06resultB/Z-github.com/lk2023060901/xdooria-proto-api;apib\x06proto3"
+	"\x06result\x18\x02 \x01(\v2\x10.api.SmeltResultR\x06result\"R\n" +
+	"\vSmeltResult\x12'\n" +
+	"\x04doll\x18\x01 \x01(\v2\x13.storage.StoredDollR\x04doll\x12\x1a\n" +
+	"\bupgraded\x18\x02 \x01(\bR\bupgradedB/Z-github.com/lk2023060901/xdooria-proto-api;apib\x06proto3"
 
 var (
 	file_smelt_proto_rawDescOnce sync.Once
@@ -142,21 +199,23 @@ func file_smelt_proto_rawDescGZIP() []byte {
 	return file_smelt_proto_rawDescData
 }
 
-var file_smelt_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_smelt_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_smelt_proto_goTypes = []any{
-	(*SmeltDoRequest)(nil),  // 0: api.SmeltDoRequest
-	(*SmeltDoResponse)(nil), // 1: api.SmeltDoResponse
-	(ErrorCode)(0),          // 2: api.ErrorCode
-	(*SmeltResult)(nil),     // 3: api.SmeltResult
+	(*SmeltDoRequest)(nil),     // 0: api.SmeltDoRequest
+	(*SmeltDoResponse)(nil),    // 1: api.SmeltDoResponse
+	(*SmeltResult)(nil),        // 2: api.SmeltResult
+	(ErrorCode)(0),             // 3: api.ErrorCode
+	(*storage.StoredDoll)(nil), // 4: storage.StoredDoll
 }
 var file_smelt_proto_depIdxs = []int32{
-	2, // 0: api.SmeltDoResponse.code:type_name -> api.ErrorCode
-	3, // 1: api.SmeltDoResponse.result:type_name -> api.SmeltResult
-	2, // [2:2] is the sub-list for method output_type
-	2, // [2:2] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	3, // 0: api.SmeltDoResponse.code:type_name -> api.ErrorCode
+	2, // 1: api.SmeltDoResponse.result:type_name -> api.SmeltResult
+	4, // 2: api.SmeltResult.doll:type_name -> storage.StoredDoll
+	3, // [3:3] is the sub-list for method output_type
+	3, // [3:3] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_smelt_proto_init() }
@@ -164,7 +223,6 @@ func file_smelt_proto_init() {
 	if File_smelt_proto != nil {
 		return
 	}
-	file_smelt_type_proto_init()
 	file_err_code_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -172,7 +230,7 @@ func file_smelt_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_smelt_proto_rawDesc), len(file_smelt_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

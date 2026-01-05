@@ -7,6 +7,7 @@
 package api
 
 import (
+	storage "github.com/lk2023060901/xdooria-proto-api/storage"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -62,7 +63,7 @@ func (*DollListRequest) Descriptor() ([]byte, []int) {
 type DollListResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Code          ErrorCode              `protobuf:"varint,1,opt,name=code,proto3,enum=api.ErrorCode" json:"code,omitempty"`
-	Dolls         []*DollItem            `protobuf:"bytes,2,rep,name=dolls,proto3" json:"dolls,omitempty"`
+	Dolls         []*storage.StoredDoll  `protobuf:"bytes,2,rep,name=dolls,proto3" json:"dolls,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -104,7 +105,7 @@ func (x *DollListResponse) GetCode() ErrorCode {
 	return ErrorCode_ERR_SUCCESS
 }
 
-func (x *DollListResponse) GetDolls() []*DollItem {
+func (x *DollListResponse) GetDolls() []*storage.StoredDoll {
 	if x != nil {
 		return x.Dolls
 	}
@@ -434,11 +435,11 @@ var File_doll_proto protoreflect.FileDescriptor
 const file_doll_proto_rawDesc = "" +
 	"\n" +
 	"\n" +
-	"doll.proto\x12\x03api\x1a\x0fdoll_type.proto\x1a\x0eerr_code.proto\"\x11\n" +
-	"\x0fDollListRequest\"[\n" +
+	"doll.proto\x12\x03api\x1a\x0eerr_code.proto\x1a\x15storage/storage.proto\"\x11\n" +
+	"\x0fDollListRequest\"a\n" +
 	"\x10DollListResponse\x12\"\n" +
-	"\x04code\x18\x01 \x01(\x0e2\x0e.api.ErrorCodeR\x04code\x12#\n" +
-	"\x05dolls\x18\x02 \x03(\v2\r.api.DollItemR\x05dolls\"A\n" +
+	"\x04code\x18\x01 \x01(\x0e2\x0e.api.ErrorCodeR\x04code\x12)\n" +
+	"\x05dolls\x18\x02 \x03(\v2\x13.storage.StoredDollR\x05dolls\"A\n" +
 	"\x13DollFavoriteRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x1a\n" +
 	"\bfavorite\x18\x02 \x01(\bR\bfavorite\"k\n" +
@@ -482,11 +483,11 @@ var file_doll_proto_goTypes = []any{
 	(*DollRedeemRequest)(nil),    // 6: api.DollRedeemRequest
 	(*DollRedeemResponse)(nil),   // 7: api.DollRedeemResponse
 	(ErrorCode)(0),               // 8: api.ErrorCode
-	(*DollItem)(nil),             // 9: api.DollItem
+	(*storage.StoredDoll)(nil),   // 9: storage.StoredDoll
 }
 var file_doll_proto_depIdxs = []int32{
 	8, // 0: api.DollListResponse.code:type_name -> api.ErrorCode
-	9, // 1: api.DollListResponse.dolls:type_name -> api.DollItem
+	9, // 1: api.DollListResponse.dolls:type_name -> storage.StoredDoll
 	8, // 2: api.DollFavoriteResponse.code:type_name -> api.ErrorCode
 	8, // 3: api.DollLockResponse.code:type_name -> api.ErrorCode
 	8, // 4: api.DollRedeemResponse.code:type_name -> api.ErrorCode
@@ -502,7 +503,6 @@ func file_doll_proto_init() {
 	if File_doll_proto != nil {
 		return
 	}
-	file_doll_type_proto_init()
 	file_err_code_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

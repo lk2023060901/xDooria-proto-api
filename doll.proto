@@ -2,8 +2,8 @@ syntax = "proto3";
 
 package api;
 
-import "doll_type.proto";
 import "err_code.proto";
+import "storage/storage.proto";
 
 option go_package = "github.com/lk2023060901/xdooria-proto-api;api";
 
@@ -14,7 +14,7 @@ message DollListRequest {
 // 获取玩偶列表响应
 message DollListResponse {
     ErrorCode code = 1;
-    repeated DollItem dolls = 2;
+    repeated storage.StoredDoll dolls = 2;
 }
 
 // 收藏/取消收藏请求

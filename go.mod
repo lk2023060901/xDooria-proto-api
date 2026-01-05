@@ -4,8 +4,11 @@ go 1.25.4
 
 require (
 	github.com/lk2023060901/xdooria-proto-common v0.0.4
+	github.com/lk2023060901/xdooria-proto-internal v0.0.0
 	google.golang.org/protobuf v1.36.11
 )
+
+replace github.com/lk2023060901/xdooria-proto-internal => ../xDooria-proto-internal
 
 require (
 	golang.org/x/net v0.47.0 // indirect

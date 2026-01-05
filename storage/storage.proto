@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package storage;
+
+option go_package = "github.com/lk2023060901/xdooria-proto-api/storage;storage";
+
+// 物品基类 - 所有存储物品的公共字段
+message ItemBase {
+    int64 id = 1;           // 实例唯一ID (UID)
+    uint32 config_id = 2;   // 配置ID（关联配置表）
+    int64 created_at = 3;   // 获得时间（时间戳）
+    int64 updated_at = 4;   // 最近更新时间（时间戳）
+    uint64 expire_at = 5;   // 过期时间（时间戳，0表示永久）
+    int64 count = 6;        // 数量（堆叠用，非堆叠为1）
+    bool is_favorite = 7;   // 是否收藏
+}
+
+// 普通道具存储
+message StoredItem {
+    ItemBase base = 1;
+}
+
+// 玩偶存储 - 扩展基础信息
+message StoredDoll {
+    ItemBase base = 1;
+    bool is_locked = 2;     // 是否锁定（防止误销毁）
+    bool is_redeemed = 3;   // 是否已兑换实物
+}
+
+// 道具背包
+message ItemBag {
+    repeated StoredItem items = 1;
+}
+
+// 玩偶背包
+message DollBag {
+    repeated StoredDoll items = 1;
+}
