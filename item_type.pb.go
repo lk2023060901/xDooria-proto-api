@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.36.11
 // 	protoc        v6.32.1
-// source: storage/item_type.proto
+// source: item_type.proto
 
-package storage
+package api
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -37,7 +37,7 @@ type ItemBase struct {
 
 func (x *ItemBase) Reset() {
 	*x = ItemBase{}
-	mi := &file_storage_item_type_proto_msgTypes[0]
+	mi := &file_item_type_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -49,7 +49,7 @@ func (x *ItemBase) String() string {
 func (*ItemBase) ProtoMessage() {}
 
 func (x *ItemBase) ProtoReflect() protoreflect.Message {
-	mi := &file_storage_item_type_proto_msgTypes[0]
+	mi := &file_item_type_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -62,7 +62,7 @@ func (x *ItemBase) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ItemBase.ProtoReflect.Descriptor instead.
 func (*ItemBase) Descriptor() ([]byte, []int) {
-	return file_storage_item_type_proto_rawDescGZIP(), []int{0}
+	return file_item_type_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *ItemBase) GetId() int64 {
@@ -124,7 +124,7 @@ type StoredItem struct {
 
 func (x *StoredItem) Reset() {
 	*x = StoredItem{}
-	mi := &file_storage_item_type_proto_msgTypes[1]
+	mi := &file_item_type_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -136,7 +136,7 @@ func (x *StoredItem) String() string {
 func (*StoredItem) ProtoMessage() {}
 
 func (x *StoredItem) ProtoReflect() protoreflect.Message {
-	mi := &file_storage_item_type_proto_msgTypes[1]
+	mi := &file_item_type_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -149,7 +149,7 @@ func (x *StoredItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StoredItem.ProtoReflect.Descriptor instead.
 func (*StoredItem) Descriptor() ([]byte, []int) {
-	return file_storage_item_type_proto_rawDescGZIP(), []int{1}
+	return file_item_type_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *StoredItem) GetBase() *ItemBase {
@@ -169,7 +169,7 @@ type ItemBag struct {
 
 func (x *ItemBag) Reset() {
 	*x = ItemBag{}
-	mi := &file_storage_item_type_proto_msgTypes[2]
+	mi := &file_item_type_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -181,7 +181,7 @@ func (x *ItemBag) String() string {
 func (*ItemBag) ProtoMessage() {}
 
 func (x *ItemBag) ProtoReflect() protoreflect.Message {
-	mi := &file_storage_item_type_proto_msgTypes[2]
+	mi := &file_item_type_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -194,7 +194,7 @@ func (x *ItemBag) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ItemBag.ProtoReflect.Descriptor instead.
 func (*ItemBag) Descriptor() ([]byte, []int) {
-	return file_storage_item_type_proto_rawDescGZIP(), []int{2}
+	return file_item_type_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *ItemBag) GetItems() []*StoredItem {
@@ -216,7 +216,7 @@ type ItemChanged struct {
 
 func (x *ItemChanged) Reset() {
 	*x = ItemChanged{}
-	mi := &file_storage_item_type_proto_msgTypes[3]
+	mi := &file_item_type_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -228,7 +228,7 @@ func (x *ItemChanged) String() string {
 func (*ItemChanged) ProtoMessage() {}
 
 func (x *ItemChanged) ProtoReflect() protoreflect.Message {
-	mi := &file_storage_item_type_proto_msgTypes[3]
+	mi := &file_item_type_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -241,7 +241,7 @@ func (x *ItemChanged) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ItemChanged.ProtoReflect.Descriptor instead.
 func (*ItemChanged) Descriptor() ([]byte, []int) {
-	return file_storage_item_type_proto_rawDescGZIP(), []int{3}
+	return file_item_type_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *ItemChanged) GetId() int64 {
@@ -276,7 +276,7 @@ type ItemDeleted struct {
 
 func (x *ItemDeleted) Reset() {
 	*x = ItemDeleted{}
-	mi := &file_storage_item_type_proto_msgTypes[4]
+	mi := &file_item_type_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -288,7 +288,7 @@ func (x *ItemDeleted) String() string {
 func (*ItemDeleted) ProtoMessage() {}
 
 func (x *ItemDeleted) ProtoReflect() protoreflect.Message {
-	mi := &file_storage_item_type_proto_msgTypes[4]
+	mi := &file_item_type_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -301,7 +301,7 @@ func (x *ItemDeleted) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ItemDeleted.ProtoReflect.Descriptor instead.
 func (*ItemDeleted) Descriptor() ([]byte, []int) {
-	return file_storage_item_type_proto_rawDescGZIP(), []int{4}
+	return file_item_type_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *ItemDeleted) GetId() int64 {
@@ -330,7 +330,7 @@ type ItemChangeResult struct {
 
 func (x *ItemChangeResult) Reset() {
 	*x = ItemChangeResult{}
-	mi := &file_storage_item_type_proto_msgTypes[5]
+	mi := &file_item_type_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -342,7 +342,7 @@ func (x *ItemChangeResult) String() string {
 func (*ItemChangeResult) ProtoMessage() {}
 
 func (x *ItemChangeResult) ProtoReflect() protoreflect.Message {
-	mi := &file_storage_item_type_proto_msgTypes[5]
+	mi := &file_item_type_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -355,7 +355,7 @@ func (x *ItemChangeResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ItemChangeResult.ProtoReflect.Descriptor instead.
 func (*ItemChangeResult) Descriptor() ([]byte, []int) {
-	return file_storage_item_type_proto_rawDescGZIP(), []int{5}
+	return file_item_type_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *ItemChangeResult) GetAdded() []*ItemBase {
@@ -379,11 +379,11 @@ func (x *ItemChangeResult) GetDeleted() []*ItemDeleted {
 	return nil
 }
 
-var File_storage_item_type_proto protoreflect.FileDescriptor
+var File_item_type_proto protoreflect.FileDescriptor
 
-const file_storage_item_type_proto_rawDesc = "" +
+const file_item_type_proto_rawDesc = "" +
 	"\n" +
-	"\x17storage/item_type.proto\x12\astorage\"\xc9\x01\n" +
+	"\x0fitem_type.proto\x12\x03api\"\xc9\x01\n" +
 	"\bItemBase\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x1b\n" +
 	"\tconfig_id\x18\x02 \x01(\rR\bconfigId\x12\x1d\n" +
@@ -394,12 +394,12 @@ const file_storage_item_type_proto_rawDesc = "" +
 	"\texpire_at\x18\x05 \x01(\x04R\bexpireAt\x12\x14\n" +
 	"\x05count\x18\x06 \x01(\x03R\x05count\x12\x1f\n" +
 	"\vis_favorite\x18\a \x01(\bR\n" +
-	"isFavorite\"3\n" +
+	"isFavorite\"/\n" +
 	"\n" +
-	"StoredItem\x12%\n" +
-	"\x04base\x18\x01 \x01(\v2\x11.storage.ItemBaseR\x04base\"4\n" +
-	"\aItemBag\x12)\n" +
-	"\x05items\x18\x01 \x03(\v2\x13.storage.StoredItemR\x05items\"R\n" +
+	"StoredItem\x12!\n" +
+	"\x04base\x18\x01 \x01(\v2\r.api.ItemBaseR\x04base\"0\n" +
+	"\aItemBag\x12%\n" +
+	"\x05items\x18\x01 \x03(\v2\x0f.api.StoredItemR\x05items\"R\n" +
 	"\vItemChanged\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x14\n" +
 	"\x05count\x18\x02 \x01(\x03R\x05count\x12\x1d\n" +
@@ -407,39 +407,39 @@ const file_storage_item_type_proto_rawDesc = "" +
 	"updated_at\x18\x03 \x01(\x03R\tupdatedAt\"3\n" +
 	"\vItemDeleted\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x14\n" +
-	"\x05count\x18\x02 \x01(\x03R\x05count\"\x9b\x01\n" +
-	"\x10ItemChangeResult\x12'\n" +
-	"\x05added\x18\x01 \x03(\v2\x11.storage.ItemBaseR\x05added\x12.\n" +
-	"\achanged\x18\x02 \x03(\v2\x14.storage.ItemChangedR\achanged\x12.\n" +
-	"\adeleted\x18\x03 \x03(\v2\x14.storage.ItemDeletedR\adeletedB;Z9github.com/lk2023060901/xdooria-proto-api/storage;storageb\x06proto3"
+	"\x05count\x18\x02 \x01(\x03R\x05count\"\x8f\x01\n" +
+	"\x10ItemChangeResult\x12#\n" +
+	"\x05added\x18\x01 \x03(\v2\r.api.ItemBaseR\x05added\x12*\n" +
+	"\achanged\x18\x02 \x03(\v2\x10.api.ItemChangedR\achanged\x12*\n" +
+	"\adeleted\x18\x03 \x03(\v2\x10.api.ItemDeletedR\adeletedB/Z-github.com/lk2023060901/xdooria-proto-api;apib\x06proto3"
 
 var (
-	file_storage_item_type_proto_rawDescOnce sync.Once
-	file_storage_item_type_proto_rawDescData []byte
+	file_item_type_proto_rawDescOnce sync.Once
+	file_item_type_proto_rawDescData []byte
 )
 
-func file_storage_item_type_proto_rawDescGZIP() []byte {
-	file_storage_item_type_proto_rawDescOnce.Do(func() {
-		file_storage_item_type_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_storage_item_type_proto_rawDesc), len(file_storage_item_type_proto_rawDesc)))
+func file_item_type_proto_rawDescGZIP() []byte {
+	file_item_type_proto_rawDescOnce.Do(func() {
+		file_item_type_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_item_type_proto_rawDesc), len(file_item_type_proto_rawDesc)))
 	})
-	return file_storage_item_type_proto_rawDescData
+	return file_item_type_proto_rawDescData
 }
 
-var file_storage_item_type_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
-var file_storage_item_type_proto_goTypes = []any{
-	(*ItemBase)(nil),         // 0: storage.ItemBase
-	(*StoredItem)(nil),       // 1: storage.StoredItem
-	(*ItemBag)(nil),          // 2: storage.ItemBag
-	(*ItemChanged)(nil),      // 3: storage.ItemChanged
-	(*ItemDeleted)(nil),      // 4: storage.ItemDeleted
-	(*ItemChangeResult)(nil), // 5: storage.ItemChangeResult
+var file_item_type_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_item_type_proto_goTypes = []any{
+	(*ItemBase)(nil),         // 0: api.ItemBase
+	(*StoredItem)(nil),       // 1: api.StoredItem
+	(*ItemBag)(nil),          // 2: api.ItemBag
+	(*ItemChanged)(nil),      // 3: api.ItemChanged
+	(*ItemDeleted)(nil),      // 4: api.ItemDeleted
+	(*ItemChangeResult)(nil), // 5: api.ItemChangeResult
 }
-var file_storage_item_type_proto_depIdxs = []int32{
-	0, // 0: storage.StoredItem.base:type_name -> storage.ItemBase
-	1, // 1: storage.ItemBag.items:type_name -> storage.StoredItem
-	0, // 2: storage.ItemChangeResult.added:type_name -> storage.ItemBase
-	3, // 3: storage.ItemChangeResult.changed:type_name -> storage.ItemChanged
-	4, // 4: storage.ItemChangeResult.deleted:type_name -> storage.ItemDeleted
+var file_item_type_proto_depIdxs = []int32{
+	0, // 0: api.StoredItem.base:type_name -> api.ItemBase
+	1, // 1: api.ItemBag.items:type_name -> api.StoredItem
+	0, // 2: api.ItemChangeResult.added:type_name -> api.ItemBase
+	3, // 3: api.ItemChangeResult.changed:type_name -> api.ItemChanged
+	4, // 4: api.ItemChangeResult.deleted:type_name -> api.ItemDeleted
 	5, // [5:5] is the sub-list for method output_type
 	5, // [5:5] is the sub-list for method input_type
 	5, // [5:5] is the sub-list for extension type_name
@@ -447,26 +447,26 @@ var file_storage_item_type_proto_depIdxs = []int32{
 	0, // [0:5] is the sub-list for field type_name
 }
 
-func init() { file_storage_item_type_proto_init() }
-func file_storage_item_type_proto_init() {
-	if File_storage_item_type_proto != nil {
+func init() { file_item_type_proto_init() }
+func file_item_type_proto_init() {
+	if File_item_type_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_storage_item_type_proto_rawDesc), len(file_storage_item_type_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_item_type_proto_rawDesc), len(file_item_type_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_storage_item_type_proto_goTypes,
-		DependencyIndexes: file_storage_item_type_proto_depIdxs,
-		MessageInfos:      file_storage_item_type_proto_msgTypes,
+		GoTypes:           file_item_type_proto_goTypes,
+		DependencyIndexes: file_item_type_proto_depIdxs,
+		MessageInfos:      file_item_type_proto_msgTypes,
 	}.Build()
-	File_storage_item_type_proto = out.File
-	file_storage_item_type_proto_goTypes = nil
-	file_storage_item_type_proto_depIdxs = nil
+	File_item_type_proto = out.File
+	file_item_type_proto_goTypes = nil
+	file_item_type_proto_depIdxs = nil
 }

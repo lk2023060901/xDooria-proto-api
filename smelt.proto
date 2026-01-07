@@ -3,7 +3,7 @@ syntax = "proto3";
 package api;
 
 import "err_code.proto";
-import "storage/storage_type.proto";
+import "storage_type.proto";
 
 option go_package = "github.com/lk2023060901/xdooria-proto-api;api";
 
@@ -20,6 +20,6 @@ message SmeltDoResponse {
 
 // 熔炼结果
 message SmeltResult {
-    storage.StoredDoll doll = 1;  // 熔炼产出的新玩偶
+    StoredDoll doll = 1;  // 熔炼产出的新玩偶
     bool upgraded = 2;            // 是否升品成功
 }

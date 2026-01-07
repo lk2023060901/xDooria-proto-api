@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-package storage;
+package api;
 
-import "storage/item_type.proto";
+import "item_type.proto";
 
-option go_package = "github.com/lk2023060901/xdooria-proto-api/storage;storage";
+option go_package = "github.com/lk2023060901/xdooria-proto-api;api";
 
 // 玩偶存储 - 扩展基础信息
 message StoredDoll {

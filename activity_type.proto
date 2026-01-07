@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "github.com/lk2023060901/xdooria-proto-api;api";
+
+// 活动状态枚举
+enum ActivityStatus {
+    ACTIVITY_STATUS_UNKNOWN = 0;  // 未知状态
+    ACTIVITY_STATUS_RUNNING = 1;  // 进行中
+    ACTIVITY_STATUS_ENDED = 2;    // 已结束
+}
+
+// 活动状态
+message ActivityState {
+    int32 config_id = 1;       // 活动配置ID
+    string activity_id = 2;    // 活动实例ID
+    int32 type = 3;            // 活动类型
+    string current_stage = 4;  // 当前阶段
+    int64 stage_end_time = 5;  // 阶段结束时间戳（秒）
+    int64 start_time = 6;      // 活动开始时间戳（秒）
+    ActivityStatus status = 7; // 活动状态
+}

@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package api;
+
+import "item_type.proto";
+import "storage_type.proto";
+
+option go_package = "github.com/lk2023060901/xdooria-proto-api;api";
+
+// 道具奖励（用于发放和返回）
+message ItemReward {
+    repeated StoredItem items = 1;  // 奖励的道具列表
+    repeated StoredDoll dolls = 2;  // 奖励的玩偶列表
+}

@@ -4,6 +4,7 @@ package api;
 
 import "gacha_type.proto";
 import "err_code.proto";
+import "reward_type.proto";
 
 option go_package = "github.com/lk2023060901/xdooria-proto-api;api";
 
@@ -26,6 +27,6 @@ message GachaDrawRequest {
 // 抽奖响应
 message GachaDrawResponse {
     ErrorCode code = 1;
-    repeated GachaReward rewards = 2;  // 抽奖奖励列表
-    int32 draw_count = 3;              // 抽奖后累计次数
+    ItemReward reward = 2;     // 实际获得的道具奖励
+    int32 draw_count = 3;      // 抽奖后累计次数
 }

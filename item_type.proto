@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package storage;
+package api;
 
-option go_package = "github.com/lk2023060901/xdooria-proto-api/storage;storage";
+option go_package = "github.com/lk2023060901/xdooria-proto-api;api";
 
 // 物品基类 - 所有存储物品的公共字段
 message ItemBase {
