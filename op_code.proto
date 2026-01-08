@@ -48,4 +48,7 @@ enum OpCode {
     // 熔炼系统 (3200 - 3299)
     OP_SMELT_DO_REQ = 3200;       // 执行熔炼请求
     OP_SMELT_DO_RES = 3201;       // 执行熔炼响应
+
+    // 物品系统通知 (9000 - 9099)
+    OP_ITEM_CHANGE_NOTIFY = 9000; // 物品变化通知（服务器主动推送）
 }

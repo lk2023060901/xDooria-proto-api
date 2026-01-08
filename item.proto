@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package api;
+
+import "item_type.proto";
+
+option go_package = "github.com/lk2023060901/xdooria-proto-api;api";
+
+// 物品变化通知 (OP_ITEM_CHANGE_NOTIFY)
+// 服务器主动推送给客户端，通知物品背包发生变化
+message ItemChangeNotify {
+    ItemChangeResult changes = 1;  // 物品变化详情
+}
